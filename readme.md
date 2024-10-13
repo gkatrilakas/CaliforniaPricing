@@ -1,4 +1,3 @@
-```markdown
 # California Housing Price Prediction
 
 ## Project Overview
