@@ -1,0 +1,27 @@
+{
+    // Python-specific settings
+    "[python]": {
+        // Use Black as the formatter. Download the ms VS Code extension.
+        "editor.defaultFormatter": "ms-python.python",
+        "python.formatting.provider": "black",
+        // Format on save
+        "editor.formatOnSave": true,
+        // Organize imports on save
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    // isort configuration. Download the ms VS Code extension.
+    "isort.args": [ 
+        "--profile",
+        "black"
+    ],
+    // flake8 configuration. Download the ms VS Code extension.
+    "flake8.args": [
+        "--max-line-length=88"
+    ],
+    // Type checking mode
+    // "python.analysis.typeCheckingMode": "basic",
+    // Debugging configuration
+    "debugpy.debugJustMyCode": false
+}
