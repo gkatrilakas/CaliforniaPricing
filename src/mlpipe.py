@@ -29,6 +29,10 @@ results_path = os.path.expanduser(os.getenv('RESULTS_PATH'))
 model = None
 
 def run_ml_pipeline():
+    """
+    Function to run the ml pipeline
+    """    
+
     # Load the dataset
     # data_path = '~/Library/CloudStorage/OneDrive-Pfizer/Desktop/Projects/California_Pricing/data/housing.csv'
     df = pd.read_csv(data_path)

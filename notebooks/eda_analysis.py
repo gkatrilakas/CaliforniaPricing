@@ -12,6 +12,14 @@ data_path = os.path.expanduser(os.getenv('DATA_PATH'))
 
 # %%
 def eda_analysis(data:str, categorical_columns: list, target_variable:str) -> None:
+    """EDA Analysis Function
+
+    Args:
+        data (str): Path to the dataset
+        categorical_columns (list): List of categorical columns
+        target_variable (str): Target variable
+    """    
+
     # Load the dataset
     df = pd.read_csv(data)
 

@@ -5,6 +5,10 @@ from main import app
 client = TestClient(app)
 
 def test_predict_valid_input():
+    """
+    Function to test the predict endpoint with a valid input
+    """    
+
     # Define a valid input payload
     payload = {
         "longitude": -122.23,

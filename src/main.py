@@ -38,7 +38,18 @@ app = FastAPI()
 
 # Define the prediction endpoint
 @app.post("/predict")
-def predict(data: InputData):
+def predict(data: InputData) -> dict:
+    
+    """FastApi route to make predictions
+
+    Args:
+        data (InputData): Data to make predictions
+
+    Returns:
+        dict: Prediction
+    """ 
+    
+       
     # Convert input data to DataFrame
     input_df = pd.DataFrame([data.dict()])
 
