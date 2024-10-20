@@ -35,7 +35,8 @@ California_Pricing/
 │
 ├── .env
 ├── pyproject.toml
-└── README.md
+├── readme.md
+└── requirements.txt
 ```
 
 ## How to Install Dependencies
