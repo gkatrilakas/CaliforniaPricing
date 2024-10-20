@@ -34,7 +34,6 @@ def run_ml_pipeline():
     """    
 
     # Load the dataset
-    # data_path = '~/Library/CloudStorage/OneDrive-Pfizer/Desktop/Projects/California_Pricing/data/housing.csv'
     df = pd.read_csv(data_path)
 
 
@@ -122,25 +121,27 @@ def run_ml_pipeline():
     print(results_df)
 
     # Save the results to a CSV file
-    # csv_file = os.path.expanduser('~/Library/CloudStorage/OneDrive-Pfizer/Desktop/Projects/California_Pricing/data/resultsdb/model_results.csv')
     if os.path.isfile(results_path):
         results_df.to_csv(results_path, mode='a', header=False, index=False)
 
     # Save the best model's parameters to a pickle file
-    # file_path = os.path.expanduser('~/Library/CloudStorage/OneDrive-Pfizer/Desktop/Projects/California_Pricing/data/model_params/best_model.pkl')
-    with open(model_path, 'wb') as f:
-            pickle.dump(best_model, f)
-    
+    try:
+        with open(model_path, 'wb') as f:
+                pickle.dump(best_model, f)
+    except:
+        print('Error saving the model')
     # Save the encoder
-    # file_path = os.path.expanduser('~/Library/CloudStorage/OneDrive-Pfizer/Desktop/Projects/California_Pricing/data/model_params/encoder.pkl')
-    with open(encoder_path, 'wb') as f:
-        pickle.dump(categorical_transformer, f)
-
+    try:
+        with open(encoder_path, 'wb') as f:
+            pickle.dump(categorical_transformer, f)
+    except:
+        print('Error saving the encoder')
     # Save the scaler
-    # file_path = os.path.expanduser('~/Library/CloudStorage/OneDrive-Pfizer/Desktop/Projects/California_Pricing/data/model_params/scaler.pkl')
-    with open(scaler_path, 'wb') as f:
-        pickle.dump(scaler, f)
-
+    try:
+        with open(scaler_path, 'wb') as f:
+            pickle.dump(scaler, f)
+    except:
+        print('Error saving the scaler')
 # Run the pipeline
 if __name__ == "__main__":
     run_ml_pipeline()
