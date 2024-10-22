@@ -9,14 +9,14 @@ api_url = "http://127.0.0.1:8000/predict"
 st.title("California Housing Price Prediction")
 
 # Define the input fields for each feature
-longitude = st.number_input("Longitude", value=-40.6401)
-latitude = st.number_input("Latitude", value=22.9444)
+longitude = st.number_input("Longitude", value=-118.24)
+latitude = st.number_input("Latitude", value=34.05)
 housing_median_age = st.number_input("Housing Median Age", value=10.0, step=1.0)
 total_rooms = st.number_input("Total Rooms", value=5.0, step=1.0)
 total_bedrooms = st.number_input("Total Bedrooms", value=2.0, step=1.0)
-population = st.number_input("Population", value=815000.0, step=1000.0)
+population = st.number_input("Population", value=3900000.0, step=1000.0)
 households = st.number_input("Households", value=4.0, step=1.0)
-median_income = st.number_input("Median Income", value=27000.0, step=500.0)
+median_income = st.number_input("Median Income", value=100000.0, step=500.0)
 
 # Hardcode the unique values for ocean_proximity
 ocean_proximity_choices = ["<1H OCEAN", "INLAND", "ISLAND", "NEAR BAY", "NEAR OCEAN"]
