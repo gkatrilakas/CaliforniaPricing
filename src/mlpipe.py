@@ -88,7 +88,7 @@ def run_ml_pipeline():
             'Mean Absolute Error': mae,
             'R-squared': r2,
             'Run DateTime': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-            'Comment': 'Kept only Linear Regression and Decision Tree models'
+            'Comment': 'Added Random Forest model'
         })
         
         # Check if this model is the best so far

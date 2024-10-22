@@ -32,3 +32,6 @@ Linear Regression,,,50678.25599181272,0.625473157,10/22/24 10:47,Kept only Linea
 Decision Tree,,,43799.87160852713,0.6312926596212558,10/22/24 10:47,Kept only Linear Regression and Decision Tree modelsLinear Regression,,,50678.25599181272,0.625473156651141,2024-10-22 11:22:18,Kept only Linear Regression and Decision Tree models
 Decision Tree,,,43269.46753875969,0.6427400626227779,2024-10-22 11:22:18,Kept only Linear Regression and Decision Tree models
 Random Forest,,,31668.740024224804,0.8175345259276066,2024-10-22 11:22:24,Kept only Linear Regression and Decision Tree models
+Linear Regression,,,50678.25599181272,0.625473156651141,2024-10-22 13:20:48,Added Random Forest model
+Decision Tree,,,43942.532218992244,0.633405477622502,2024-10-22 13:20:48,Added Random Forest model
+Random Forest,,,31470.738049903102,0.8186336100934742,2024-10-22 13:20:54,Added Random Forest model
