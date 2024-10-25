@@ -30,26 +30,32 @@ def run_ml_pipeline():
     X = df.drop('median_house_value', axis=1)
     y = df['median_house_value']
 
+    # Split the data
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
     # Identify numerical and categorical columns
     numerical_cols = X.select_dtypes(include=['int64', 'float64']).columns
     categorical_cols = X.select_dtypes(include=['object']).columns
 
     # Preprocessing for numerical data
     numerical_transformer = SimpleImputer(strategy='median')
-    X[numerical_cols] = numerical_transformer.fit_transform(X[numerical_cols])
+    X_train[numerical_cols] = numerical_transformer.fit_transform(X_train[numerical_cols])
+    X_test[numerical_cols] = numerical_transformer.transform(X_test[numerical_cols])
 
     # Preprocessing for categorical data
     categorical_transformer = OneHotEncoder(handle_unknown='ignore')
-    X_encoded = categorical_transformer.fit_transform(X[categorical_cols]).toarray()
-    X_encoded_df = pd.DataFrame(X_encoded, columns=categorical_transformer.get_feature_names_out(categorical_cols))
+    X_train_encoded = categorical_transformer.fit_transform(X_train[categorical_cols]).toarray()
+    X_test_encoded = categorical_transformer.transform(X_test[categorical_cols]).toarray()
+    X_train_encoded_df = pd.DataFrame(X_train_encoded, columns=categorical_transformer.get_feature_names_out(categorical_cols))
+    X_test_encoded_df = pd.DataFrame(X_test_encoded, columns=categorical_transformer.get_feature_names_out(categorical_cols))
 
     # Combine numerical and encoded categorical data
-    X = X.drop(categorical_cols, axis=1)
-    X = pd.concat([X.reset_index(drop=True), X_encoded_df.reset_index(drop=True)], axis=1)
-
-    # Split the data
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
+    X_train = X_train.drop(categorical_cols, axis=1)
+    X_test = X_test.drop(categorical_cols, axis=1)
+    X_train = pd.concat([X_train.reset_index(drop=True), X_train_encoded_df.reset_index(drop=True)], axis=1)
+    X_test = pd.concat([X_test.reset_index(drop=True), X_test_encoded_df.reset_index(drop=True)], axis=1)
+    
     # Define models
     models = {
         'Linear Regression': LinearRegression(),
@@ -88,7 +94,7 @@ def run_ml_pipeline():
             'Mean Absolute Error': mae,
             'R-squared': r2,
             'Run DateTime': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-            'Comment': 'Added Random Forest model'
+            'Comment': 'Changed order for data splitting'
         })
         
         # Check if this model is the best so far
